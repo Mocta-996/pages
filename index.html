@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lo siento</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            padding: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(12px);
+            border-radius: 30px;
+            padding: 50px 40px;
+            max-width: 520px;
+            width: 100%;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            text-align: center;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .heart {
+            font-size: 70px;
+            display: block;
+            margin-bottom: 15px;
+            animation: pulse 1.6s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 1rem;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .message {
+            color: rgba(255, 255, 255, 0.88);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .message strong {
+            color: #ff6b8a;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 44px;
+            border: none;
+            border-radius: 60px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            background: linear-gradient(135deg, #ff6b8a, #ff8e53);
+            color: #fff;
+            transition: transform 0.25s, box-shadow 0.25s;
+            box-shadow: 0 8px 24px rgba(255, 107, 138, 0.35);
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 12px 32px rgba(255, 107, 138, 0.5);
+        }
+
+        .btn:active {
+            transform: scale(0.97);
+        }
+
+        .footer {
+            margin-top: 25px;
+            color: rgba(255, 255, 255, 0.35);
+            font-size: 0.85rem;
+        }
+
+        #responseMsg {
+            margin-top: 20px;
+            color: #fff;
+            font-size: 1.1rem;
+            min-height: 30px;
+            transition: opacity 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <span class="heart">&hearts;</span>
+        <h1>Lo siento</h1>
+        <p class="subtitle"> de todo corazon</p>
+
+        <p class="message">
+            Sé que cometí el error al no ver su mensaje a tiempo y no hicimos el curso juntos.
+        </p>
+
+        <button class="btn" onclick="perdoname()">¿Me perdona?</button>
+
+        <p id="responseMsg"></p>
+    </div>
+
+    <script>
+        function perdoname() {
+            const msgs = [
+                "Gracias... de verdad, gracias. 💖",
+                "Aun tenemos pendiente el cafecito.☕",
+            ];
+            const randomMsg = msgs[Math.floor(Math.random() * msgs.length)];
+            document.getElementById("responseMsg").textContent = randomMsg;
+        }
+    </script>
+</body>
+</html>
